@@ -1,0 +1,24 @@
+#
+# For full config options, check the docs:
+#    docs.serverless.com
+#
+
+service: hello-sqli # NOTE: update this with your service name
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+
+functions:
+  hello:
+    handler: hello.hello
+    events:
+      - http:
+          path: hello
+          method: GET
+  get-movie:
+    handler: get-movie.handler
+    events:
+      - http:
+          path: movie
+          method: GET

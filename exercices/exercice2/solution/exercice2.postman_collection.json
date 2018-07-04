@@ -1,0 +1,193 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Exercice 2",
+		"_postman_id": "683ea8cd-3831-0055-5b84-7c518ce21db9",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "hello-get",
+			"request": {
+				"url": "https://8nsa6a3f8g.execute-api.us-east-1.amazonaws.com/slabre/hello",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Execute la fonction lambda hello (qui retourne un message texte)"
+			},
+			"response": [
+				{
+					"id": "63fbda99-2332-446f-965b-fd6f261cef41",
+					"name": "hello-get example",
+					"originalRequest": {
+						"url": "https://8nsa6a3f8g.execute-api.us-east-1.amazonaws.com/slabre/hello",
+						"method": "GET",
+						"header": [],
+						"body": {}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "text",
+					"header": [
+						{
+							"name": "content-length",
+							"key": "content-length",
+							"value": "19",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "content-type",
+							"key": "content-type",
+							"value": "application/json",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "date",
+							"key": "date",
+							"value": "Wed, 04 Jul 2018 15:18:38 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "status",
+							"key": "status",
+							"value": "200",
+							"description": "Custom header"
+						},
+						{
+							"name": "via",
+							"key": "via",
+							"value": "1.1 af2dd53407c5eae7ddf5c44e27a5dd1b.cloudfront.net (CloudFront)",
+							"description": "Informs the client of proxies through which the response was sent."
+						},
+						{
+							"name": "x-amz-apigw-id",
+							"key": "x-amz-apigw-id",
+							"value": "JgjEOGpJoAMFXqQ=",
+							"description": "Custom header"
+						},
+						{
+							"name": "x-amz-cf-id",
+							"key": "x-amz-cf-id",
+							"value": "EuXXxo-zgBH_AdpxxVEBYsseWpc63TxcpLL5uAveXfwHxh4O2MwXpA==",
+							"description": "Custom header"
+						},
+						{
+							"name": "x-amzn-requestid",
+							"key": "x-amzn-requestid",
+							"value": "86c01b6b-7f9d-11e8-9657-1ba3c2f22a62",
+							"description": "Custom header"
+						},
+						{
+							"name": "x-amzn-trace-id",
+							"key": "x-amzn-trace-id",
+							"value": "Root=1-5b3ce54e-66f95b003b13aca0eabb3670",
+							"description": "Custom header"
+						},
+						{
+							"name": "x-cache",
+							"key": "x-cache",
+							"value": "Miss from cloudfront",
+							"description": "Custom header"
+						}
+					],
+					"cookie": [],
+					"responseTime": 161,
+					"body": "Hello SQLI Addict !"
+				}
+			]
+		},
+		{
+			"name": "movie-get",
+			"request": {
+				"url": "https://8nsa6a3f8g.execute-api.us-east-1.amazonaws.com/slabre/movie",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Appel de l'url /movie avec la méthode GET "
+			},
+			"response": [
+				{
+					"id": "4c518894-d5d7-4c92-9884-7c03c480f31b",
+					"name": "movie-get-example",
+					"originalRequest": {
+						"url": "https://8nsa6a3f8g.execute-api.us-east-1.amazonaws.com/slabre/movie",
+						"method": "GET",
+						"header": [],
+						"body": {}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "text",
+					"header": [
+						{
+							"name": "content-length",
+							"key": "content-length",
+							"value": "161",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "content-type",
+							"key": "content-type",
+							"value": "application/json",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "date",
+							"key": "date",
+							"value": "Wed, 04 Jul 2018 16:31:00 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "status",
+							"key": "status",
+							"value": "200",
+							"description": "Custom header"
+						},
+						{
+							"name": "via",
+							"key": "via",
+							"value": "1.1 7e0707e0f48f4f9539869f4f24aa67e4.cloudfront.net (CloudFront)",
+							"description": "Informs the client of proxies through which the response was sent."
+						},
+						{
+							"name": "x-amz-apigw-id",
+							"key": "x-amz-apigw-id",
+							"value": "JgtqoHHLoAMF3dA=",
+							"description": "Custom header"
+						},
+						{
+							"name": "x-amz-cf-id",
+							"key": "x-amz-cf-id",
+							"value": "O3m0u1qvfMdiV8XHSIL8VegjYMVkFfYev90DlgcCo5kMih4ePqvWrg==",
+							"description": "Custom header"
+						},
+						{
+							"name": "x-amzn-requestid",
+							"key": "x-amzn-requestid",
+							"value": "a2b02974-7fa7-11e8-a837-f7c6a39c8063",
+							"description": "Custom header"
+						},
+						{
+							"name": "x-amzn-trace-id",
+							"key": "x-amzn-trace-id",
+							"value": "Root=1-5b3cf644-0646d970688038574f0278ee",
+							"description": "Custom header"
+						},
+						{
+							"name": "x-cache",
+							"key": "x-cache",
+							"value": "Miss from cloudfront",
+							"description": "Custom header"
+						}
+					],
+					"cookie": [],
+					"responseTime": 513,
+					"body": "[{\"id\":1,\"title\":\"Into the wild\",\"director\":\"Sean Penn\",\"date\":2007},{\"id\":2,\"title\":\"Le père noël est une ordure\",\"director\":\"Jean-Marie Poiré\",\"date\":1982}]"
+				}
+			]
+		}
+	]
+}
