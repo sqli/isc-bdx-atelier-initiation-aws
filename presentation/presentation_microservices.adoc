@@ -1,4 +1,4 @@
-= Portes Ouvertes juillet 2018 - 
+= Microservices et Amazon Cloud
 Sylvain Labre / Eric Léon
 :backend: revealjs
 :revealjs_theme: solarized
@@ -14,8 +14,173 @@ Sylvain Labre / Eric Léon
 
 (C) SQLI 2018
 
-include::microservices.adoc[]
-include::ecosystemes.adoc[]
-include::aws.adoc[]
-include::serverless.adoc[]
-include::lambdas.adoc[]
+== Microservices
+
+** Une architecture microservices est une architecture logicielle serveur permettant:
+
+*** une isolation des processus métiers
+**** découplage des différentes parties d'un même projet
+**** chaque service expose son propre API
+*** une modularité de déploiement
+**** on peut ne mettre à jour qu'un seul service sans toucher au reste de l'application
+*** une facilité de développement par plusieurs équipes
+**** chaque équipe peut développer de manière indépendante
+**** des languages différents peuvent être utilisés (pas conseillé mais possible)
+*** une optimisation de la mise à l'échelle
+**** chaque service peut être dimenssionné de manière indépendante
+**** optimisation des coûts  
+
+== Les plateformes de cloud computing
+Trois grands acteurs se partagent 53% des plateformes de cloud computing.
+
+=== Amazon Web Services
+image::aws.png[AWS,width=150]
+
+** Amazon été le premier à créer une offre cloud en **mars 2006** (pré-versions dès 2002). +
+** *34%* des parts de marché. +
+** _Nasa, Netflix, Shutterfly, Cloudinary, Ryanair, Atlassian, Adobe, Siemens, etc..._
+
+image::amazon_portal.png[Google portal,width=500]
+
+=== Microsoft Azure
+image::azure.jpeg[Azure,width=150]
+
+** Arrivé tardivement en **février 2010**. +
+** *13%* de parts de marché. +
+** _Coca Cola, Fedex, Boeing, UPS, Toyota, BMW, etc..._
+
+image::azure_portal.png[Google portal,width=500]
+
+=== Google Cloud
+image::googlecloud.jpeg[Google,width=150]
+
+** Google démarre son service cloud en **2008** avec App Engine. +
+** *6%* de parts de marché. +
+** _Coca Cola, Spotify, Philips, Snapshat, Wix, etc..._
+
+image::google_portal.png[Google portal,width=500]
+
+=== Les outsiders (pour le moment)
+
+** IBM OpenWhisk (basé sur Apache OpenWhisk), Oracle Cloud, Alibaba Cloud, ...
+
+== Le cloud AWS
+
+** AWS est découpé en plusieurs services:
+
+*** Calcul (EC2, Lambdas)
+*** Stockage (S3, Glacier)
+*** Bases de données (RDS, DynamoDB)
+*** Gestion (CloudFront, CloudFormation)
+*** et beaucoup d'autres à voir sur https://console.aws.amazon.com/console/home[la console AWS]...
+
+=== AWS Services
+image::AWS_services.png[AWS Services]
+
+=== AWS Free tier
+
+** AWS est gratuit en mode bridé pendant un an mais impose une limite dans l'utilisation de chaque service:
+
+*** le *volume* des données stockées dans S3
+*** la *puissance* des instances EC2 (t1micro)
+*** la *taille* des bases de données
+*** le *nombre* de mails envoyés
+*** ...
+
+== Serverless
+
+** Serverless est un kit de développement et de déploiement d'architectures serverless (CQFD !).
+On peut l'utiliser avec Amazon mais aussi avec les autres plateformes cloud comme celles de Google ou de Microsoft. +
+_Coca Cola, Expedia, EA, Reuters..._
+** Serverless s'installe via **npm** et donne accès à un utilitaire éponyme en ligne de commande.
+
+image:serverless.png[Serverless]
+
+=== Templates
+
+** Les templates permettent de créer l'ossature élémentaire (scaffolding) d'une application serverless. Plusieurs templates à disposition dont:
+
+*** aws-nodejs, azure-nodejs, google-nodejs
+*** aws-go
+*** aws-java-maven
+*** https://github.com/serverless/serverless/tree/master/lib/plugins/create/templates[et beaucoup d'autres]
+
+=== Configuration
+
+** Serverless prend en charge la création sur AWS des ressources de l'application (buckets S3, bases de données, fonctions lambdas, ...).
+La description de ces ressources se fait grâce au fichier de configuration yaml *serverless.yml*. 
+
+```yaml
+service: serverless-rest-api-with-dynamodb
+
+frameworkVersion: ">=1.1.0 <2.0.0"
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+  environment:
+    DYNAMODB_TABLE: ${self:service}-${opt:stage, self:provider.stage}
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:PutItem
+        - dynamodb:GetItem
+      Resource: "arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:provider.environment.DYNAMODB_TABLE}"
+```
+=== Ressources
+```
+resources:
+  Resources:
+    TodosDynamoDbTable:
+      Type: 'AWS::DynamoDB::Table'
+      DeletionPolicy: Retain
+      Properties:
+        AttributeDefinitions:
+          -
+            AttributeName: id
+            AttributeType: S
+        KeySchema:
+          -
+            AttributeName: id
+            KeyType: HASH
+        TableName: ${self:provider.environment.DYNAMODB_TABLE}
+```
+
+=== Fonctions lambda
+```yaml
+functions:
+  create:
+    handler: todos/create.create
+    events:
+      - http:
+          path: todos
+          method: post
+          cors: true
+  get:
+    handler: todos/get.get
+    events:
+      - http:
+          path: todos/{id}
+          method: get
+          cors: true
+```
+
+== AWS Lambdas
+
+** Les lambdas AWS sont des services permettant d'exécuter du code sur le cloud sans provisionner de serveur. 
+La fonction lambda s'exécue automatiquement lorsque l'événement configuré pour la déclencher survient: 
+
+*** une requête HTTP sur un URL donné
+*** une modification (création ou destruction de fichier) dans un bucket S3
+*** un evénement sur file de notification SNS
+*** ...
+
+=== AWS Lambdas
+
+** Une lambda peut avoir deux états.
+
+*** L'état *'cold start'* si aucune instance de la lambda ne tourne. Il faut alors environ 3s à Amazon pour démarrer la lambda.
+*** L'état *'warm start'* si une instance de la lambda est déjà en cours d'exécution. 
+Amazon de tue pas immédiatement la lambda après la fin de son exécution pour éviter le temps de latence nécessaire à son redémarrage.
+
+** La facturation comptabilise le nombre de fois où la lambda est appelée, le temps cumulé d'exécution et la quantité de mémoire qu'elle consomme.
