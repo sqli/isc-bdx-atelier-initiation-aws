@@ -1,0 +1,21 @@
+= Portes Ouvertes juillet 2018 - 
+Sylvain Labre / Eric Léon
+:backend: revealjs
+:revealjs_theme: solarized
+:revealjs_slideNumber: true
+:imagesdir: ./images
+:sourcedir: ./slides
+:source-language: javascript
+//:source-highlighter: pygments
+//:coderay-linenums-mode: inline
+//:coderay-css: style
+//:pygments-style: tango
+:icons: fonts
+
+(C) SQLI 2018
+
+include::microservices.adoc[]
+include::ecosystemes.adoc[]
+include::aws.adoc[]
+include::serverless.adoc[]
+include::lambdas.adoc[]

@@ -1,0 +1,7 @@
+== Microservices
+Une architecture microservices est une architecture logicielle serveur permettant:
+
+** une isolation des processus métiers : découplage des différentes parites d'un projet 
+** une modularité de déploiement : on peut ne mettre à jour qu'un seul service sans toucher au reste de l'application
+** à chaque service d'exposer son propre API
+** 
