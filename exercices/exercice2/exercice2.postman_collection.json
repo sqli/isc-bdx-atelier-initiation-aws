@@ -1,0 +1,102 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Exercice 1",
+		"_postman_id": "683ea8cd-3831-0055-5b84-7c518ce21db9",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "hello-get",
+			"request": {
+				"url": "https://8nsa6a3f8g.execute-api.us-east-1.amazonaws.com/slabre/hello",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Execute la fonction lambda hello (qui retourne un message texte)"
+			},
+			"response": [
+				{
+					"id": "7a080251-b959-4634-aedc-1733d663b90e",
+					"name": "hello-get example",
+					"originalRequest": {
+						"url": "https://8nsa6a3f8g.execute-api.us-east-1.amazonaws.com/slabre/hello",
+						"method": "GET",
+						"header": [],
+						"body": {}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "text",
+					"header": [
+						{
+							"name": "content-length",
+							"key": "content-length",
+							"value": "19",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "content-type",
+							"key": "content-type",
+							"value": "application/json",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "date",
+							"key": "date",
+							"value": "Wed, 04 Jul 2018 15:18:38 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "status",
+							"key": "status",
+							"value": "200",
+							"description": "Custom header"
+						},
+						{
+							"name": "via",
+							"key": "via",
+							"value": "1.1 af2dd53407c5eae7ddf5c44e27a5dd1b.cloudfront.net (CloudFront)",
+							"description": "Informs the client of proxies through which the response was sent."
+						},
+						{
+							"name": "x-amz-apigw-id",
+							"key": "x-amz-apigw-id",
+							"value": "JgjEOGpJoAMFXqQ=",
+							"description": "Custom header"
+						},
+						{
+							"name": "x-amz-cf-id",
+							"key": "x-amz-cf-id",
+							"value": "EuXXxo-zgBH_AdpxxVEBYsseWpc63TxcpLL5uAveXfwHxh4O2MwXpA==",
+							"description": "Custom header"
+						},
+						{
+							"name": "x-amzn-requestid",
+							"key": "x-amzn-requestid",
+							"value": "86c01b6b-7f9d-11e8-9657-1ba3c2f22a62",
+							"description": "Custom header"
+						},
+						{
+							"name": "x-amzn-trace-id",
+							"key": "x-amzn-trace-id",
+							"value": "Root=1-5b3ce54e-66f95b003b13aca0eabb3670",
+							"description": "Custom header"
+						},
+						{
+							"name": "x-cache",
+							"key": "x-cache",
+							"value": "Miss from cloudfront",
+							"description": "Custom header"
+						}
+					],
+					"cookie": [],
+					"responseTime": 161,
+					"body": "Hello SQLI Addict !"
+				}
+			]
+		}
+	]
+}

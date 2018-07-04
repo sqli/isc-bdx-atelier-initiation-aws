@@ -132,7 +132,6 @@ endpoints:
 ```
 On peut donc utiliser cette url dans outil comme postman ou directement dans un navigateur.
 
-
 ## Liens utiles
 
 * NodeJS : https://nodejs.org/en/ , https://nodejs.org/docs/latest-v9.x/api/
