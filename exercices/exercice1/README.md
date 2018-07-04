@@ -12,7 +12,7 @@ Voici les premières étapes pour commencer un projet serverless :
 
 ## Enoncé 
 
-> Par la suite, si vous avez sauté une étape ou si, pour une raison X ou Y votre appli ne marche plus vous pouvez copier-coller les fichiers depuis le dossier src de l'exercice que vous souhaitez reprendre. Il contiendra une base de travail propre pour bien commencer l'exercice.
+> Par la suite, si vous avez sauté une étape ou si, pour une raison X ou Y votre appli ne marche plus vous pouvez copier-coller les fichiers depuis le dossier solution de l'exercice précédent. Il contiendra une base de travail propre pour bien commencer le nouvel exercice.
 
 ### Etape 1 : Les credentials AWS
 

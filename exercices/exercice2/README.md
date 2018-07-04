@@ -6,7 +6,7 @@ Nous allons maintenant agrémenter notre projet avec 1 nouvelle lambda pour réc
 
 ## Enoncé 
 
-> Si vous avez sauté une étape ou si, pour une raison X ou Y votre appli ne marche plus vous pouvez copier-coller les fichiers depuis le dossier src de l'exercice 2. Il contiendra une base de travail propre pour bien commencer l'exercice.
+> Si vous avez sauté une étape ou si, pour une raison X ou Y votre appli ne marche plus vous pouvez copier-coller les fichiers depuis le dossier `solution` de l'exercice 1. Il contiendra une base de travail propre pour bien commencer l'exercice.
 
 ### Etape 1 : Renommer notre fichier de lambda hello-world
 
