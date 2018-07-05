@@ -119,13 +119,20 @@ Utilisez la méthode scan pour enregistrer et récupérer les données dans la t
 
 > Astuce : pour récupérer une variable définie dans le fichier serverless.yml vous pouvez utiliser dans le fichier js, la syntaxe : `process.env.MA_VARIABLE`, servez vous en pour récupérer le nom de la table depuis la variable définie à l'exercice 2
 
-Comme vous le verrez, la méthode scan est asynchrone. Pour s'affranchir de cette problématique utilisez la syntaxe suivante : 
+Comme vous le verrez, la méthode scan est asynchrone.
+Plutôt que d'utiliser le fonctionnement par défaut avec un callback, nous vous conseillons d'utiliser la syntaxe promesse : 
 ```javascript
-const movies = await dynamoDBClient.scan(...).promise();
+return dynamoDBClient.scan(...).promise();
 ```
 
-Vous utilisez ainsi les async/await de javascript qui permettent de rendre le code plus lisible et de s'affranchir de l'asynchronisme.
-
+Vous pourrez ensuite récupérer le retour de la méthode asynchrone avec :
+```javascript
+.then((result) => {
+    // Vous pouvez ici manipuler votre resultat et ensuite faire appel à votre callback de lambda : 
+    const response = {... , JSON.stringify(result)};
+    callback(null, response)
+})
+```
 #### Tests
 
 Déployez votre code et lancez la lambda get-movie (avec invoke ou via postman)
