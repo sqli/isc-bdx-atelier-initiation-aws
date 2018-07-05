@@ -10,7 +10,13 @@ provider:
   runtime: nodejs6.10
   environment:
     DYNAMODB_TABLE: ${opt:stage, self:provider.stage}-movies
-
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:Scan
+        - dynamodb:PutItem
+        - dynamodb:GetItem
+      Resource: "arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:provider.environment.DYNAMODB_TABLE}"
 functions:
   hello:
     handler: hello.hello
@@ -24,6 +30,12 @@ functions:
       - http:
           path: movie
           method: GET
+  post-movie:
+    handler: movies/lambdas/post-movie.handler
+    events:
+      - http:
+          path: movie
+          method: POST
 
 resources:
   Resources:

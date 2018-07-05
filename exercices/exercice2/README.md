@@ -68,7 +68,7 @@ Créez le fichier ```movie.service.js``` et exportez un méthode getMovies dans 
 
 Maintenant que nous avons un service pour récupérer nos données, créons une seconde lambda.
 
-En vous inspirant du code déjà fait, créez une lambda ```get-movies.js``` et pensez à configurer correctement votre fichier ***serverless.yml*** pour que l'on puisse récupérer la liste de film via un appel HTTP GET sur l'url ```/movie```
+En vous inspirant du code déjà fait, créez une lambda ```get-movie.js``` et pensez à configurer correctement votre fichier ***serverless.yml*** pour que l'on puisse récupérer la liste de film via un appel HTTP GET sur l'url ```/movie```
 
 > Attention Il faudra toujours que le body retourné par votre lambda (via la méthode callback) soit au format `string`. Il faudra donc bien penser à faire un formattage JSON de vos objets avec `JSON.stringify(movies)`
 
